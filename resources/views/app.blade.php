@@ -12,7 +12,6 @@
     <div
         id="app"
     >
-        <users-list />
         @yield('content')
     </div>
 </body>
