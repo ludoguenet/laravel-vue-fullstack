@@ -1,9 +1,12 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\User\IndexController;
+use App\Http\Controllers\Api\User\StoreController;
 use Illuminate\Support\Facades\Route;
 
-// api/users
-// users.index
-Route::get('users', \App\Http\Controllers\Api\User\IndexController::class)->name('index');
-Route::post('users', \App\Http\Controllers\Api\User\StoreController::class)->name('store');
+Route::prefix('users')
+    ->as('users.')
+    ->group(function () {
+        Route::get('/', IndexController::class)->name('index');
+        Route::post('/', StoreController::class)->name('store');
+    });
