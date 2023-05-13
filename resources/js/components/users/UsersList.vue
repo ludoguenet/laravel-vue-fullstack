@@ -3,8 +3,14 @@
         v-for="user in users"
     >
         <p
-            v-text="user.name"
+            v-text="user.password"
         />
+
+        <p
+            v-text="user.name"
+        >
+
+        </p>
     </template>
 </template>
 
