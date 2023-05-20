@@ -21,12 +21,13 @@ export default function () {
         id: number,
     ): Promise<void> => {
         await axios.get(`/api/users/${id}`)
-            .then((res) => console.log(res))
+            .then((res) => user.value = res.data.data)
             .catch((err) => console.log(err));
     }
 
     return {
         errors,
+        user,
         createUser,
         showUser
     }

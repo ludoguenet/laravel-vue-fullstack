@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed top-16 w-72">
+    <div class="mt-16 w-72">
         <Combobox
             v-model="selected"
             @update:modelValue="id => emit('update:modelValue', id)"
