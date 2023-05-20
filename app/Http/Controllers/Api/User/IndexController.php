@@ -10,7 +10,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class IndexController extends Controller
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): UserCollection
     {
         return new UserCollection(
             resource: User::all(),

@@ -44,6 +44,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return Attribute<never-return, string>
+     */
     protected function password(): Attribute
     {
         return Attribute::make(
