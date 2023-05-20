@@ -21,7 +21,7 @@ export default function () {
         id: number,
     ): Promise<void> => {
         await axios.get(`/api/users/${id}`)
-            .then((res) => user.value = res.data.data)
+            .then((res) => console.log(res))
             .catch((err) => console.log(err));
     }
 
