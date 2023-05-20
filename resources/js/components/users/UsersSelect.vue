@@ -1,6 +1,9 @@
 <template>
     <div class="fixed top-16 w-72">
-        <Combobox v-model="selected">
+        <Combobox
+            v-model="selected"
+            @update:modelValue="id => emit('update:modelValue', id)"
+        >
             <div class="relative mt-1">
                 <div
                     class="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
@@ -86,6 +89,10 @@ import {UserType} from "../../types/users/UserType";
 
 const props = defineProps<{
     users: Array<UserType>,
+}>();
+
+const emit = defineEmits<{
+    (e: 'update:modelValue', id: number): void
 }>();
 
 let selected = ref(props.users[0].id)

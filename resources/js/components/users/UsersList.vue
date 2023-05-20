@@ -3,10 +3,12 @@
         v-if="users.length !== 0"
 
         :users="users"
+
+        @update:modelValue="(id: number) => handleUpdateId(id)"
     />
 </template>
 
-<script setup>
+<script setup lang="ts">
     import {ref} from "vue";
 
     const users = ref([]);
@@ -18,4 +20,10 @@
     }
 
     loadFromServer();
+
+    const handleUpdateId = (
+        id: number
+    ): void => {
+        console.log(id);
+    }
 </script>
