@@ -10,6 +10,7 @@
 </head>
 <body>
     <div
+        class="mt-10 container mx-auto"
         id="app"
     >
         @yield('content')

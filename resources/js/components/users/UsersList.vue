@@ -1,11 +1,9 @@
 <template>
-    <template
-        v-for="user in users"
-    >
-        <p
-            v-text="user.password"
-        />
-    </template>
+    <users-select
+        v-if="users.length !== 0"
+
+        :users="users"
+    />
 </template>
 
 <script setup>
@@ -13,8 +11,8 @@
 
     const users = ref([]);
 
-    const loadFromServer = () => {
-        axios.get('/api/users')
+    const loadFromServer = async () => {
+        await axios.get('/api/users')
             .then((res) => users.value = res.data.data)
             .catch((err) => console.log(err));
     }
